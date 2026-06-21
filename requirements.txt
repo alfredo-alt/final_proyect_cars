@@ -6,3 +6,4 @@ scikit-learn
 sqlalchemy
 python-decouple
 psycopg2-binary
+xgboost

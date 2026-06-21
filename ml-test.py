@@ -11,12 +11,57 @@ scaler_y = joblib.load('./model/scaler_y.pkl')
 print("Model and scalers loaded successfully!")
 
 new_car_features = [
-    1.0,  # Fuel_Type (e.g., 1.0 for 'Other', 0.0 for 'Gasoline')
-    50000, # Mileage_km
-    2020,  # Year
-    150,   # Power_hp
-    1500,  # Engine_Size_cc
-    4      # Cylinders
+    0.0,  # Owner_Type (First=0, Second=1, Third=2, Fourth+=3 -> elegido First)
+    0.0,  # Model_3 series
+    0.0,  # Model_A4
+    0.0,  # Model_Amaze
+    0.0,  # Model_Bolero
+    1.0,  # Model_C-class (Elegido)
+    0.0,  # Model_Camry
+    0.0,  # Model_Carens
+    0.0,  # Model_City
+    0.0,  # Model_Civic
+    0.0,  # Model_Corolla
+    0.0,  # Model_Creta
+    0.0,  # Model_E-class
+    0.0,  # Model_Ecosport
+    0.0,  # Model_Endeavour
+    0.0,  # Model_Figo
+    0.0,  # Model_Gla
+    0.0,  # Model_Harrier
+    0.0,  # Model_I20
+    0.0,  # Model_Kicks
+    0.0,  # Model_Kushaq
+    0.0,  # Model_Magnite
+    0.0,  # Model_Nexon
+    0.0,  # Model_Octavia
+    0.0,  # Model_Polo
+    0.0,  # Model_Punch
+    0.0,  # Model_Q3
+    0.0,  # Model_Q5
+    0.0,  # Model_Scorpio
+    0.0,  # Model_Seltos
+    0.0,  # Model_Slavia
+    0.0,  # Model_Sonet
+    0.0,  # Model_Sunny
+    0.0,  # Model_Taigun
+    0.0,  # Model_Verna
+    0.0,  # Model_Virtus
+    0.0,  # Model_X1
+    0.0,  # Model_X3
+    0.0,  # Model_Xuv700
+    0.0,  # Model_Yaris
+    1.0,  # Transmission_Manual (1 = manual, 0 = automático)
+    0.0,  # Fuel_Type_Cng
+    1.0,  # Fuel_Type_Diesel (Elegido)
+    0.0,  # Fuel_Type_Electric
+    0.0,  # Fuel_Type_Hybrid
+    0.0,  # Fuel_Type_Petrol
+    2022, # Year
+    2000, # Engine_CC
+    194,  # Horsepower
+    30000,# Kms_Driven
+    0     # Accidents
 ]
 
 # Convert to numpy array and reshape for the scaler
