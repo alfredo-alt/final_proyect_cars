@@ -28,7 +28,7 @@ def usedcar_price(data: UsedCarCreate):
     price = predict_price(
         model_name=data.model_name,
         owner_type=data.owner_type,
-        transmission_manual=data.transmission_manual,
+        transmission_manual=1 if data.transmission == "Manual" else 0,
         fuel_type=data.fuel_type,
         year=data.year,
         engine_size_cc=data.engine_size_cc,
@@ -47,7 +47,7 @@ def create(data: UsedCarCreate, db: Session = Depends(get_db)):
     price = predict_price(
         model_name=data.model_name,
         owner_type=data.owner_type,
-        transmission_manual=data.transmission_manual,
+        transmission_manual=1 if data.transmission == "Manual" else 0,
         fuel_type=data.fuel_type,
         year=data.year,
         engine_size_cc=data.engine_size_cc,
@@ -59,7 +59,7 @@ def create(data: UsedCarCreate, db: Session = Depends(get_db)):
     new_data = UsedCar(
         model_name=data.model_name,
         owner_type=data.owner_type,
-        transmission_manual=data.transmission_manual,
+        transmission=data.transmission,
         fuel_type=data.fuel_type,
         year=data.year,
         engine_size_cc=data.engine_size_cc,
@@ -102,7 +102,7 @@ def update_usedcar(
     price = predict_price(
         model_name=data.model_name,
         owner_type=data.owner_type,
-        transmission_manual=data.transmission_manual,
+        transmission_manual=1 if data.transmission == "Manual" else 0,
         fuel_type=data.fuel_type,
         year=data.year,
         engine_size_cc=data.engine_size_cc,
@@ -113,7 +113,7 @@ def update_usedcar(
 
     used_car.model_name = data.model_name
     used_car.owner_type = data.owner_type
-    used_car.transmission_manual = data.transmission_manual
+    used_car.transmission = data.transmission
     used_car.fuel_type = data.fuel_type
     used_car.year = data.year
     used_car.engine_size_cc = data.engine_size_cc

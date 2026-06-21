@@ -16,6 +16,11 @@ class OwnerType(str, Enum):
     fourth_plus = "Fourth+"
 
 
+class TransmissionType(str, Enum):
+    manual = "Manual"
+    automatic = "Automatic"
+
+
 class ModelName(str, Enum):
     series_3 = "3 series"
     a4 = "A4"
@@ -61,7 +66,7 @@ class ModelName(str, Enum):
 class UsedCarCreate(BaseModel):
     model_name: ModelName = Field(..., example="C-class")
     owner_type: OwnerType = Field(..., example="First")
-    transmission_manual: int = Field(..., example=1, ge=0, le=1, description="1 = manual, 0 = automático")
+    transmission: TransmissionType = Field(..., example="Manual")
     fuel_type: FuelType = Field(..., example="Diesel")
     year: int = Field(..., example=2020)
     engine_size_cc: float = Field(..., example=1500)
@@ -79,7 +84,7 @@ class UsedCarResponse(BaseModel):
     id: int = Field(..., example=1)
     model_name: str = Field(..., example="C-class")
     owner_type: str = Field(..., example="First")
-    transmission_manual: int = Field(..., example=1)
+    transmission: str = Field(..., example="Manual")
     fuel_type: str = Field(..., example="Diesel")
     year: int = Field(..., example=2020)
     engine_size_cc: float = Field(..., example=1500)
